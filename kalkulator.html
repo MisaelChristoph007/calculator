@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <center><p><h1>Misael Kalkulator</h1></p></center>
+</head>
+<body>
+  <form>
+  <label type="input1">Input nilai 1:</label>
+    <input type="number" placeholder="masukan inputan angka 1" id="input1"><br><br>
+    <label type="input2">Input nilai 2:</label>
+    <input type="number" placeholder="masukan inputan angka 2" id="input2"><br>
+    <input type="reset"><br><br>
+  </form>
+
+  <label>Pilih fungsi:</label><br>
+    <input type="radio" name="operator" id="tambah" onclick="tambah()">tambah<br>
+    <input type="radio" name="operator" id="kurang" onclick="kurang()">kurang<br>
+    <input type="radio" name="operator" id="kali" onclick="kali()">kali<br>
+    <input type="radio" name="operator" id="bagi" onclick="bagi()">bagi<br><br>
+  <label>Hasil:</label>
+    <input type="text" id="hasil" disabled>
+    <script>
+      function ambilNilai()
+      {
+        nilaiSatu = document.getElementById('input1').value;
+        nilaiDua = document.getElementById('input2').value;
+        if (nilaiSatu == '' || nilaiDua == '')
+        {
+          return alert('Nilai harus terisi!');
+        } else {
+          nilai = [nilaiSatu,nilaiDua];
+          return nilai;
+        }
+      }
+
+      function printHasil(output)
+      {
+        hasil = document.getElementById('hasil');
+        return hasil.value = output;
+      }
+      
+      function tambah()
+      {
+        let nilai = ambilNilai();
+        prosesTambah = parseInt(nilai[0]) + parseInt(nilai[1]);
+        return printHasil(prosesTambah);
+      }
+
+      function kurang()
+      {
+        let nilai = ambilNilai();
+        prosesKurang = parseInt(nilai[0]) - parseInt(nilai[1]);
+        return printHasil(prosesKurang);
+      }
+
+      function kali()
+      {
+        let nilai = ambilNilai();
+        prosesKali = parseInt(nilai[0]) * parseInt(nilai[1]);
+        return printHasil(prosesKali);
+      }
+
+      function bagi()
+      {
+        let nilai = ambilNilai();
+        prosesBagi = parseInt(nilai[0]) / parseInt(nilai[1]);
+        return printHasil(prosesBagi);
+      }
+    </script>
+</body>
+</html>
